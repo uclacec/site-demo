@@ -1,11 +1,11 @@
-$(speakersbutton).click(function(e) {
+$('.speakers-button').click(function(e) {
 	$(modal).fadeOut(200);
 });
 
-$(filmsbutton).click(function(e) {
+$('.films-button.).click(function(e) {
 	$(modal).fadeOut(200);
 });
 
-$(concertsbutton).click(function(e) {
+$('.concerts-button.).click(function(e) {
 	$().fadeOut(200);
 });
