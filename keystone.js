@@ -63,10 +63,9 @@ keystone.set('email locals', {
 // Load your project's email test routes
 keystone.set('email tests', require('./routes/emails'));
 
-
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	posts: ['posts', 'post-categories'],
+	posts: ['posts', 'tag-categories'],
 	galleries: 'galleries',
 	enquiries: 'enquiries',
 	users: 'users',
