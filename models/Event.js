@@ -84,7 +84,7 @@ Event.add({
     },
     // tags for the event
     // connected to the TagCategory model
-	categories: { 
+	tags: { 
         type: Types.Relationship, 
         ref: 'TagCategory',
         many: true, 
