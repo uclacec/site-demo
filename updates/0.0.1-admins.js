@@ -9,13 +9,15 @@
 
 exports.create = {
 	User: [
-		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'garchbold@g.ucla.edu', 'password': 'happy', 'isAdmin': true },
+		{ 
+			'name.first': 'Admin', 'name.last': 'User', 
+			'email': 'garchbold@g.ucla.edu', 'password': 'happy',
+			'isAdmin': true 
+		},
 	],
 };
 
-/*
-
-// This is the long-hand version of the functionality above:
+/* This is the long-hand version of the functionality above:
 
 var keystone = require('keystone');
 var async = require('async');
