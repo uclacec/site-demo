@@ -11,7 +11,7 @@ var keystone = require('keystone');
 
 keystone.init({
 	'name': 'cecsite',
-	'brand': 'cecsite',
+	'brand': 'CEC',
 
 	'less': 'public',
 	'static': 'public',
@@ -65,6 +65,7 @@ keystone.set('email tests', require('./routes/emails'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
+	events: 'events',
 	posts: ['posts', 'tag-categories'],
 	galleries: 'galleries',
 	enquiries: 'enquiries',
