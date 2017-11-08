@@ -12,18 +12,67 @@ var Post = new keystone.List('Post', {
 });
 
 Post.add({
-	title: { type: String, required: true },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'User', index: true },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
-	image: { type: Types.S3File },
-	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 },
+	// blog post title
+	title: { 
+		type: String, 
+		required: true 
 	},
-	categories: { type: Types.Relationship, ref: 'TagCategory', many: true },
+	// state of post
+	// draft: still being worked on (progress can be saved w/o publishing)
+	// published: completed blog post (will be displayed on site)
+	// archived: completed but no longer displayed
+	state: { 
+		type: Types.Select, 
+		options: 'draft, published, archived', 
+		default: 'draft', 
+		index: true 
+	},
+	// author of the blog post
+	// connected to the author's User model
+	author: { 
+		type: Types.Relationship, 
+		ref: 'User', 
+		index: true 
+	},
+	// date on which the blog was published
+	publishedDate: { 
+		type: Types.Date, 
+		index: true, 
+		dependsOn: { state: 'published' } 
+	},
+	// an image associated with the blog post
+	// TODO ... option to have multiple images
+	image: { 
+		type: Types.S3File 
+	},
+	// actual blog content
+	content: {
+		// the head of the blog post
+		// portion displayed on the main blog page
+		brief: { 
+			type: Types.Html, 
+			wysiwyg: true, 
+			height: 150 
+		},
+		// full blog content
+		// displayed on the individual blog's page
+		extended: { 
+			type: Types.Html, 
+			wysiwyg: true, 
+			height: 400 
+		},
+	},
+	// tags for the blog post
+	// connected to the TagCategory model
+	categories: { 
+		type: Types.Relationship, 
+		ref: 'TagCategory', 
+		many: true 
+	},
 });
 
+// add a "content.full" field to the model
+// will not be stored in the mongo database
 Post.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });

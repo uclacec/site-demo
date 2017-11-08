@@ -10,9 +10,11 @@ var TagCategory = new keystone.List('TagCategory', {
 });
 
 TagCategory.add({
-	name: { type: String, required: true },
+	name: { 
+		type: String, 
+		required: true 
+	},
 });
 
 TagCategory.relationship({ ref: 'Post', path: 'categories' });
-
 TagCategory.register();
