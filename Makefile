@@ -2,7 +2,7 @@
 # Makefile
 
 
-EC2_ID  = "ec2-54-67-8-121.us-west-1.compute.amazonaws.com"
+EC2_ID  = "ec2-52-53-224-70.us-west-1.compute.amazonaws.com"
 KEYFILE = "~/.ssh/ian_aws_keypair.pem"
 
 
